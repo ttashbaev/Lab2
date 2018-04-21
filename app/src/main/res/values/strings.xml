@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">LabVacancies</string>
+    <string name="suitable">Подходящие</string>
+    <string name="daily">Вакансии за сутки</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="project_name">AU.KG</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="all_vacancies">Все вакансии Кыргызстана</string>
+
+    <string name="favorite">Избранные вакансии</string>
+</resources>
