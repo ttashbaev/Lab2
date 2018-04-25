@@ -14,13 +14,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.timur.labvacancies.R;
+import com.example.timur.labvacancies.data.ListVievAdapter;
+import com.example.timur.labvacancies.data.UserModel;
+
+import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView tvVersion;
+    private ArrayList<UserModel> arrayList;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +45,21 @@ public class Main2Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*tvVersion = findViewById(R.id.tvVersion);
-        // pInfo = null;
-        try {
-            PackageInfo pInfo = Main2Activity.this.getPackageManager().getPackageInfo(getPackageName(), 0);
-            String version = pInfo.versionName;
-            tvVersion.setText(version);
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
-        }*/
+        listView = findViewById(R.id.listView);
+        arrayList = new ArrayList<>();
+
+        for (int i = 0; i < 15; i++) {
+            UserModel model = new UserModel();
+            model.setCheeked(false);
+            model.setProfession("test" + i);
+            model.setData("25.04.2018");
+            model.setProfile(i + "asfadfsdfs");
+            model.setSalary("4500" + i + i + i);
+            arrayList.add(model);
+        }
+
+        ListVievAdapter adapter = new ListVievAdapter(this, arrayList);
+        listView.setAdapter(adapter);
 
     }
 
