@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.timur.labvacancies.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Timur on 25.04.2018.
@@ -21,9 +22,9 @@ import java.util.ArrayList;
 
 public class ListVievAdapter extends ArrayAdapter<UserModel> {
 
-    private ArrayList<UserModel> dataList;
+    private List<UserModel> dataList;
     Context context;
-    public ListVievAdapter(@NonNull Context context, ArrayList<UserModel> dataList) {
+    public ListVievAdapter(@NonNull Context context, List<UserModel> dataList) {
         super(context, 0, dataList);
         this.dataList = dataList;
         this.context = context;
@@ -43,7 +44,7 @@ public class ListVievAdapter extends ArrayAdapter<UserModel> {
         UserModel model = getItem(position);
         holder.tvMainInfo.setText(model.getProfession());
         holder.tvData.setText(model.getData());
-        holder.tvInfo.setText(model.getProfile());
+        holder.tvInfo.setText(model.getHeader());
         holder.tvSalary.setText(model.getSalary());
         holder.cbFav.setChecked(model.isCheeked());
         //Picasso.get().load(model.getAvatar()).into(holder.ivAvatar);

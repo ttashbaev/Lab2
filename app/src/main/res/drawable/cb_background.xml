@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-        xmlns:android="http://schemas.android.com/apk/res/android">
         <item
             android:state_checked="true"
-            android:drawable="@drawable/iv_fav" />  // картинка с галочкой
+            android:drawable="@drawable/iv_fav"
+            />
         <item
             android:state_checked="false"
-            android:drawable="@drawable/iv_fav_default" />  // картинка с крестиком
+            android:drawable="@drawable/iv_fav_default" />
+
+
     </selector>

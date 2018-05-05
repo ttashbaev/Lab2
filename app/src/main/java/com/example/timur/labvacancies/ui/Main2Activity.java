@@ -1,10 +1,13 @@
 package com.example.timur.labvacancies.ui;
 
+import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,15 +21,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.timur.labvacancies.R;
+import com.example.timur.labvacancies.StartApplication;
+import com.example.timur.labvacancies.data.AuService;
 import com.example.timur.labvacancies.data.ListVievAdapter;
 import com.example.timur.labvacancies.data.UserModel;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView tvVersion;
-    private ArrayList<UserModel> arrayList;
+    private List<UserModel> arrayList = new ArrayList<>();
     private ListView listView;
 
     @Override
@@ -46,9 +56,11 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         listView = findViewById(R.id.listView);
-        arrayList = new ArrayList<>();
+        //arrayList = new ArrayList<>();
+        getAuVacancies();
 
-        for (int i = 0; i < 15; i++) {
+
+        /*for (int i = 0; i < 15; i++) {
             UserModel model = new UserModel();
             model.setCheeked(false);
             model.setProfession("test" + i);
@@ -56,10 +68,10 @@ public class Main2Activity extends AppCompatActivity
             model.setProfile(i + "asfadfsdfs");
             model.setSalary("4500" + i + i + i);
             arrayList.add(model);
-        }
+        }*/
 
-        ListVievAdapter adapter = new ListVievAdapter(this, arrayList);
-        listView.setAdapter(adapter);
+        /*ListVievAdapter adapter = new ListVievAdapter(this, arrayList);
+        listView.setAdapter(adapter);*/
 
     }
 
@@ -101,9 +113,43 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void getAuVacancies() {
+        AuService service = StartApplication.get(getApplication()).getService();
+        service.getVacancies("au", "get_all_vacancies", 30, 3)
+                .enqueue(new Callback<List<UserModel>>() {
+                    @Override
+                    public void onResponse(@NonNull Call<List<UserModel>> call, @NonNull Response<List<UserModel>> response) {
+
+                        //UserModel model = new UserModel();
+                        //arrayList = response.body();
+                        Log.d("Success ", "onResponse: " + arrayList);
+                        //ArrayList<UserModel> list = response.body();
+                        //ArrayList<String> stringList = new ArrayList<>();
+                        if (response.isSuccessful() && response.body() != null) {
+                            arrayList.addAll(response.body());
+                            ListVievAdapter adapter = new ListVievAdapter(getApplicationContext(), arrayList);
+                            listView.setAdapter(adapter);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<List<UserModel>> call, @NonNull Throwable t) {
+                        Snackbar.make(findViewById(android.R.id.content), t.getMessage(), Snackbar.LENGTH_LONG).show();
+                        Log.e("Error ", "onFailure: " + t.getMessage());
+                    }
+                });
+
+    }
+
+    private void updateData(UserModel model) {
+
+        ListVievAdapter adapter = new ListVievAdapter(this, arrayList);
+        listView.setAdapter(adapter);
+        Log.d("Success ", "updateData: " + model);
     }
 }
