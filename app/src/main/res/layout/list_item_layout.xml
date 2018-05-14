@@ -24,19 +24,21 @@
 
                 <TextView
                     android:id="@+id/tvMainInfo"
-                    android:layout_width="match_parent"
+                    android:layout_width="211dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:maxLength="24"
                     android:padding="@dimen/padding"
                     android:text="vvacancie"
-                    android:textSize="24sp" />
+                    android:textColor="@color/colorViolet"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0"
+                    android:layout_weight="1"
                     android:inputType="date"
                     android:padding="@dimen/padding"
                     android:text="12/10/2012" />
@@ -61,10 +63,10 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding"
                     android:text="info info"
-                    android:textSize="24sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -74,18 +76,19 @@
                     android:id="@+id/imageSalary"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-
+                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_weight="0"
                     android:background="@drawable/ic_salary" />
 
                 <TextView
                     android:id="@+id/tvSalary"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="10"
+                    app:layout_constraintStart_toEndOf="@id/imageSalary"
 
                     android:text="32000 sm"
-                    android:textSize="24sp" />
+                    android:textSize="14sp" />
 
                 <CheckBox
                     android:id="@+id/cbFav"
@@ -93,17 +96,31 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:button="@drawable/cb_background"
-                    android:padding="@dimen/padding"
                     android:focusable="false"
-                    style="@style/MyCheckBox"
-                    />
-            </LinearLayout>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            <TextView
-                android:id="@+id/tvView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+                <ImageView
+                    android:id="@+id/ivViewed"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvSalary"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/ic_salary" />
+
+                <TextView
+                    android:id="@+id/tvView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvSalary"
+                    app:layout_constraintStart_toEndOf="@id/ivViewed"
+                    android:layout_marginTop="10dp"
+                    android:text="Просмотренно" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

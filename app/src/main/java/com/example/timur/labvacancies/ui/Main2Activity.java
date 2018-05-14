@@ -1,6 +1,7 @@
 package com.example.timur.labvacancies.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -59,19 +62,15 @@ public class Main2Activity extends AppCompatActivity
         //arrayList = new ArrayList<>();
         getAuVacancies();
 
-
-        /*for (int i = 0; i < 15; i++) {
-            UserModel model = new UserModel();
-            model.setCheeked(false);
-            model.setProfession("test" + i);
-            model.setData("25.04.2018");
-            model.setProfile(i + "asfadfsdfs");
-            model.setSalary("4500" + i + i + i);
-            arrayList.add(model);
-        }*/
-
-        /*ListVievAdapter adapter = new ListVievAdapter(this, arrayList);
-        listView.setAdapter(adapter);*/
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                //intent.putExtra("modelVacancy", arrayList.get(i));
+                intent.putExtra("position", i);
+                startActivity(intent);
+            }
+        });
 
     }
 

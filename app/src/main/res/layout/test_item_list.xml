@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tvMainInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/padding"
+                android:text="vvacancie"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:inputType="date"
+                android:padding="@dimen/padding"
+                android:text="12/10/2012"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/imageRequest"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/ic_profile_name"
+                android:padding="@dimen/padding" />
+
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding"
+                android:text="info info"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="14">
+
+            <ImageView
+                android:id="@+id/imageSalary"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="0"
+                android:background="@drawable/ic_salary" />
+
+            <TextView
+                android:id="@+id/tvSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:text="32000 sm"
+                android:textSize="24sp" />
+
+            <CheckBox
+                android:id="@+id/cbFav"
+                android:layout_width="60dp"
+                android:layout_height="75dp"
+                android:layout_weight="4"
+                android:button="@drawable/cb_background"
+                android:focusable="false"
+                android:padding="@dimen/padding" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

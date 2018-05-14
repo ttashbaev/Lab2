@@ -12,9 +12,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+    <style name="MyCheckBox" parent="Theme.AppCompat.NoActionBar">
         <item name="colorControlNormal">#000000</item>   <!-- normal border color change as you wish -->
-        <item name="colorControlActivated">#e1b90a</item> <!-- activated color change as you wish -->
+        <item name="colorControlActivated">#000</item> <!-- activated color change as you wish -->
     </style>
 
 </resources>
