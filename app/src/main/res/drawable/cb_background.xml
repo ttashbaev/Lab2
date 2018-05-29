@@ -7,7 +7,7 @@
             />
         <item
             android:state_checked="false"
-            android:drawable="@drawable/iv_fav_default_new"
+            android:drawable="@drawable/iv_fav_default"
             />
 
 

@@ -5,8 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.timur.labvacancies.ui.Main2Activity"
+    tools:context="com.example.timur.labvacancies.ui.VacanciesActivity"
     tools:showIn="@layout/app_bar_main2">
+
+    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        app:srl_direction="bottom">
 
     <ListView
         android:id="@+id/listView"
@@ -14,4 +21,6 @@
         android:layout_height="match_parent">
 
     </ListView>/>
+
+    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 </android.support.constraint.ConstraintLayout>

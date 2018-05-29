@@ -5,8 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.timur.labvacancies.ui.Main2Activity;
-import com.example.timur.labvacancies.ui.MainActivity;
+import com.example.timur.labvacancies.ui.VacanciesActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -19,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, Main2Activity.class);
+                Intent intent = new Intent(SplashScreen.this, VacanciesActivity.class);
                 startActivity(intent);
                 SplashScreen.this.finish();
             }

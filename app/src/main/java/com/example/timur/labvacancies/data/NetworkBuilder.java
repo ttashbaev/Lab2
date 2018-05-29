@@ -1,5 +1,7 @@
 package com.example.timur.labvacancies.data;
 
+import android.support.annotation.NonNull;
+
 import com.example.timur.labvacancies.utils.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,17 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkBuilder {
     private static AuService service = null;
 
-
-
     public static AuService initService() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
         if (service == null) {
             service = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
                     .client(getClient())
-                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(AuService.class);
         }
@@ -42,7 +39,7 @@ public class NetworkBuilder {
         return new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
-                    public Response intercept(Chain chain) throws IOException {
+                    public Response intercept(@NonNull Chain chain) throws IOException {
                         Request.Builder builder = chain.request()
                                 .newBuilder()
                                 .addHeader("Accept", "application/json;versions=1");

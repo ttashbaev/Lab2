@@ -12,6 +12,33 @@
     <string name="action_settings">Settings</string>
 
     <string name="all_vacancies">Все вакансии Кыргызстана</string>
+    <string name="btn_call">Позвонить</string>
+    <string name="vacancies">Вакансии</string>
+
+    <string name="no_vacancy">Не определено</string>
+
+    <string name="prev">Предыдущее</string>
+    <string name="next">Следующее</string>
 
     <string name="favorite">Избранные вакансии</string>
+
+    <string name="yes">OK</string>
+    <string name="cancel">Отмена</string>
+    <string name="question">Вы хотите выйти из программы?</string>
+    <string name="terms">Режим работы</string>
+    <string name="salary">Оклад</string>
+
+    <string name="all_term_work">Любой</string>
+    <string name="full_day_work">Полный день</string>
+    <string name="flex_time_work">Гибкий</string>
+    <string name="remote_work">Удаленно</string>
+    <string name="night_work">Ночной</string>
+
+    <string name="five_plus">5 000+</string>
+    <string name="ten_plus">10 000+</string>
+    <string name="thirty_plus">30 000+</string>
+
+    <string name="cancel_btn">Сброс</string>
+    <string name="ok_btn">Готово</string>
+    <string name="please_wait">Пожалуйста, подождите.</string>
 </resources>

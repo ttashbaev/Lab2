@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorViolet">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tbSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorViolet"
+            app:titleTextColor="@color/md_white_1000">
+
+        </android.support.v7.widget.Toolbar>
+
+        <include
+            android:id="@+id/tbBtn"
+            layout="@layout/toolbar_layout">
+
+        </include>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProfession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="24"
+                android:padding="@dimen/padding"
+                android:text="vvacancie"
+                android:textColor="@color/colorViolet"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageRequest"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/ic_profile_name" />
+
+                <TextView
+                    android:id="@+id/tvHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/tvData"
+                    android:layout_toRightOf="@id/imageRequest"
+                    android:padding="3dp"
+                    android:text="info info"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    android:inputType="date"
+                    android:padding="3dp"
+                    android:text="12/10/2012" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageSalary"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/ic_salary" />
+
+                <TextView
+                    android:id="@+id/tvSalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/imageSalary"
+                    android:padding="3dp"
+                    android:text="info info"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvSiteAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:text="lalafo.kg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageTel"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_telephone_number" />
+
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/imageTel"
+                    android:digits="0,1,2,3,4,5,6,7,8,9,;,+"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="0555 555555"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/cbFav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="4"
+                    android:button="@drawable/cb_background"
+                    android:focusable="false" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/tvBody"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:padding="@dimen/padding"
+                android:text="vvacancie"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    \
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorOrange"
+        android:drawableStart="@drawable/ic_phone_black_24dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/btn_call"
+        android:textColor="@color/colorWhite" />
+
+
+</LinearLayout>

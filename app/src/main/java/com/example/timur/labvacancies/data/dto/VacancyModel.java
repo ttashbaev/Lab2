@@ -1,6 +1,8 @@
-package com.example.timur.labvacancies.data;
+package com.example.timur.labvacancies.data.dto;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Timur on 25.04.2018.
  */
 
-public class UserModel {
+public class VacancyModel implements Parcelable {
     @SerializedName("id")
     private Object id;
     @SerializedName("pid")
@@ -69,14 +71,25 @@ public class UserModel {
     @Expose
     private String paid;
 
-    private boolean cheeked;
+    private boolean checked;
+    private boolean viewed;
 
-    public boolean isCheeked() {
-        return cheeked;
+    public VacancyModel() {}
+
+    public boolean isViewed() {
+        return viewed;
     }
 
-    public void setCheeked(boolean cheeked) {
-        this.cheeked = cheeked;
+    public void setViewed(boolean viewed) {
+        this.viewed = viewed;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean cheeked) {
+        this.checked = cheeked;
     }
 
     public Object getId() {
@@ -239,6 +252,78 @@ public class UserModel {
         this.paid = paid;
     }
 
+
+    protected VacancyModel(Parcel in) {
+        id = (Object) in.readValue(Object.class.getClassLoader());
+        pid = in.readString();
+        header = in.readString();
+        profile = in.readString();
+        salary = in.readString();
+        telephone = in.readString();
+        data = in.readString();
+        profession = in.readString();
+        siteAddress = in.readString();
+        salary1 = in.readString();
+        link = in.readString();
+        body = in.readString();
+        count1 = (Object) in.readValue(Object.class.getClassLoader());
+        imageSrc = (Object) in.readValue(Object.class.getClassLoader());
+        raiting = in.readByte() == 0x00 ? null : in.readInt();
+        updateDate = in.readString();
+        term = in.readString();
+        postCreated = in.readString();
+        auPostId = (Object) in.readValue(Object.class.getClassLoader());
+        paid = in.readString();
+        checked = in.readByte() != 0x00;
+        viewed = in.readByte() != 0x00;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(id);
+        dest.writeString(pid);
+        dest.writeString(header);
+        dest.writeString(profile);
+        dest.writeString(salary);
+        dest.writeString(telephone);
+        dest.writeString(data);
+        dest.writeString(profession);
+        dest.writeString(siteAddress);
+        dest.writeString(salary1);
+        dest.writeString(link);
+        dest.writeString(body);
+        dest.writeValue(count1);
+        dest.writeValue(imageSrc);
+        if (raiting == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(raiting);
+        }
+        dest.writeString(updateDate);
+        dest.writeString(term);
+        dest.writeString(postCreated);
+        dest.writeValue(auPostId);
+        dest.writeString(paid);
+        dest.writeByte((byte) (checked ? 0x01 : 0x00));
+        dest.writeByte((byte) (viewed ? 0x01 : 0x00));
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<VacancyModel> CREATOR = new Parcelable.Creator<VacancyModel>() {
+        @Override
+        public VacancyModel createFromParcel(Parcel in) {
+            return new VacancyModel(in);
+        }
+
+        @Override
+        public VacancyModel[] newArray(int size) {
+            return new VacancyModel[size];
+        }
+    };
 }
-
-
