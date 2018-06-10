@@ -5,7 +5,7 @@ package com.example.timur.labvacancies.utils;
  */
 
 public class Constants {
-    public static final String BASE_URL = "";
-    public static final String URL_Endpoint = "";
+    public static final String BASE_URL = " ";
+    public static final String URL_Endpoint = " ";
     //public static final String
 }
