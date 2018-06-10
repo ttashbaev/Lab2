@@ -41,12 +41,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             ");";
 
 
-    /*private final static String CREATE_TABLE_VIEWED = "CREATE TABLE IF NOT EXISTS " +
-            TABLE_VIEWED + " (" +
-            ID + " INTEGER_PRIMARY_KEY, " +
-            PID + " TEXT, " +
-            VIEWED_VAC + " INTEGER" +
-            ");";*/
+
     private final static String CREATE_TABLE_VAC = "CREATE TABLE IF NOT EXISTS " +
             TABLE_VAC + " (" +
             ID + " INTEGER_PRIMARY_KEY, " +
